@@ -36,7 +36,12 @@ class App extends React.Component {
     const amount1 = parseInt(this.state.BillAmount);
     const amount2 = parseInt(this.state.paymentAmount);
     this.initializeNotes();
-    if (amount1 <= 0 || amount2 <= 0) {
+    if (
+      amount1 <= 0 ||
+      amount2 <= 0 ||
+      Number.isNaN(amount1) ||
+      Number.isNaN(amount2)
+    ) {
       this.setState({
         errorMessage: "Enter valid bill amount and cash given to continue",
         errorState: "active",
