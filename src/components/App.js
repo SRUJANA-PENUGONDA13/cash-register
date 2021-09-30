@@ -20,14 +20,15 @@ class App extends React.Component {
   };
 
   validateData = () => {
-    const amount1 = this.state.BillAmount;
-    const amount2 = this.state.paymentAmount;
+    const amount1 = parseInt(this.state.BillAmount);
+    const amount2 = parseInt(this.state.paymentAmount);
+
     if (amount1 <= 0 || amount2 <= 0) {
       this.setState({
         errorMessage: "Enter valid bill amount and cash given to continue",
         errorState: "active",
       });
-    } else if (amount1 >= amount2) {
+    } else if (amount1 >= parseInt(amount2)) {
       this.setState({
         errorMessage: "Cash is less than bill, please enter right amount",
         errorState: "active",
